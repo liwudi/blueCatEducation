@@ -65,7 +65,6 @@ const config = {
             exclude: /node_modules/
         },{
             test:/\.css$/,
-            include: path.resolve(__dirname, "src"),
             use:[{loader:'style-loader'},{loader:'css-loader'}]
         },{
             test:/\.(png|jpg|gif|svg)$/,

@@ -4,8 +4,10 @@
 
 import React,{ Component } from 'react';
 import { render } from 'react-dom';
-
 import Main from './pages/Main';
+import './css/common.css';
+import 'antd/dist/antd.css'
+
 
 
 //注入redux
