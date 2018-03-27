@@ -18,13 +18,15 @@ import '../css/Main.css';
 
 const { Header, Footer, Sider, Content } = Layout;
 
-
+import Styles from './MainStyle';
+import Config from '../config';
+const NavList = Config.navConfig;
 export default class Main extends Component{
 
     constructor(props){
         super(props);
         this.state = {
-            isShowModal: true,
+            isShowModal: false,
             isLogin: true
         }
     }
@@ -71,8 +73,8 @@ export default class Main extends Component{
         return (
             <div className="wrapper flex-box">
                 <Router>
-                <Layout>
-                    <Header className="flex-box" style={{backgroundColor: '#fff'}}>
+                <Layout className="bgWhite">
+                    <Header className="flex-box border-bottom bgWhite">
 
                             <div className="wrapper flex-box" id="nav">
                                 <div className="logo" >
@@ -81,24 +83,19 @@ export default class Main extends Component{
                                 <Menu
                                     style={{ lineHeight: '62px' }}
                                     mode="horizontal"
-                                    defaultSelectedKeys={['1']}
+                                    defaultSelectedKeys={['0']}
                                 >
-                                    <Menu.Item key="1">
-                                        <Icon type="user" />
-                                        <span className="nav-text">免费课程</span>
-                                    </Menu.Item>
-                                    <Menu.Item key="2">
-                                        <Icon type="user" />
-                                        <span className="nav-text">职业发展</span>
-                                    </Menu.Item>
-                                    <Menu.Item key="3">
-                                        <Icon type="user" />
-                                        <span className="nav-text">项目实战</span>
-                                    </Menu.Item>
-                                    <Menu.Item key="4">
-                                        <Icon type="user" />
-                                        <span className="nav-text">猫友论坛</span>
-                                    </Menu.Item>
+                                    {
+                                        NavList.map((item, index) => {
+                                            return (
+                                                <Menu.Item style={Styles.itemStyle} key={index+''}>
+                                                    <Icon type={item.type} />
+                                                    <span className="nav-text">{item.title}</span>
+                                                    <Link style={Styles.linkStyle} to={item.path}/>
+                                                </Menu.Item>
+                                            )
+                                        })
+                                    }
                                 </Menu>
                                 <div className="nav-right flex-box">
                                     <div className="padding-item loadApp">下载App</div>
@@ -112,14 +109,12 @@ export default class Main extends Component{
 
 
                     </Header>
-                    <Content className="center">
-                        Content
-                        <Route path="/home" component={Home} />
+                    <Content>
+                        <Route exact path="/" component={Home} />
                         <Route path="/freecourse" component={FreeCourse} />
                         <Route path="/macareer" component={MyCareer}/>
                         <Route path="/project" component={ProjectExcise} />
                     </Content>
-                    <Footer>Footer</Footer>
 
                     {/*用户登录注册Modal模态框*/}
                     <Modal
