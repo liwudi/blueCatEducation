@@ -5,10 +5,31 @@ const Styles = {
     height400:{
         height: '400px'
     },
+    height300:{
+        height: '300px'
+    },
+    height64: {
+        height: '64px'
+    },
     bannerBox:{
-        width: '1100px',
+        width: '1200px',
         borderBottom: '1px solid #ccc',
         boxShadow: '2px 2px 3px #aaaaaa'
+    },
+    width200:{
+        width: '200px'
+    },
+    img:{
+        width: '200px',
+        height: '200px'
+    },
+    itemStyle:{
+        width: '200px',
+        height: '250px',
+    },
+    itemImg: {
+        width: '200px',
+        height:'100px'
     }
 };
 

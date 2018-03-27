@@ -73,7 +73,7 @@ export default class Main extends Component{
         return (
             <div className="wrapper flex-box">
                 <Router>
-                <Layout className="bgWhite">
+                <Layout className="bgWhite" style={{padding: 0,width: '100%'}}>
                     <Header className="flex-box border-bottom bgWhite">
 
                             <div className="wrapper flex-box" id="nav">

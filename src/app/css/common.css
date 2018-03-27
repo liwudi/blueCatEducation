@@ -11,6 +11,9 @@ html,body,.wrapper,#root{
 .autoBox{
     overflow: auto;
 }
+.hiddenBox{
+    overflow: hidden;
+}
 /*flex相关*/
 .flex-box{
     display: flex;
@@ -22,6 +25,9 @@ html,body,.wrapper,#root{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.spaceBetween{
+    justify-content: space-between;
 }
 .flex1{
     flex: 1;
@@ -86,4 +92,19 @@ html,body,.wrapper,#root{
 .font-note{
     font-size: 12px;
     color: #999;
+}
+
+
+
+.lineHeight20{
+    line-height: 20px;
+}
+.lineHeight30{
+    line-height: 30px;
+}
+.lineHeight40{
+    line-height: 40px;
+}
+.lineHeight50{
+    line-height: 50px;
 }
