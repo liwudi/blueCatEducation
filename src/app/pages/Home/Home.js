@@ -17,6 +17,18 @@ export default class Home extends Component{
                 {title:'全网最热门的Python3入门+进阶更快上手实际开发',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img1.mukewang.com/szimg/59b8a486000107fb05400300.jpg'},
                 {title:'系统学习Docker 践行DevOps理念',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img3.mukewang.com/szimg/5a9614850001bc3405400300.jpg'},
                 {title:'Vue核心技术 Vue+Vue-router+Vuex',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img4.mukewang.com/szimg/5aab7f270001909810800600.jpg'},
+            ],
+            newCourseList: [
+                {title:'系统学习Docker 践行De',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img1.mukewang.com/szimg/5a9614850001bc3405400300.jpg'},
+                {title:'微信小程序入门与实战',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img2.mukewang.com/szimg/5a7279250001e10705400300.jpg'},
+                {title:'Go语言语法入门篇',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img.mukewang.com/5aaf5f370001c40306000338-240-135.jpg'},
+                {title:'Elastic Stack从入门到实战',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img2.mukewang.com/szimg/5a7441e30001d4f805400300.jpg'},
+                {title:'Java企业级电商项目架构演进之路',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img1.mukewang.com/szimg/5a16336900014ca405400300.jpg'},
+                {title:'Java高并发编程与高并发解决方案',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img4.mukewang.com/szimg/5aaa55850001a3ef10800600.jpg'},
+                {title:'Ruff物联网应用开发入门',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img3.mukewang.com/5aa77f4c0001f0a706000338-240-135.jpg'},
+                {title:'Spring Cloud微服务实战',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img2.mukewang.com/szimg/5a9ca4e80001786305400300.jpg'},
+                {title:'IOS开发之网络协议',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img.mukewang.com/5aaf826f00017e6306000338-240-135.jpg'},
+                {title:'基于Python玩转人工智能最火框架',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img3.mukewang.com/szimg/5a5ddeda000145b405400300.jpg'},
             ]
         }
     }
@@ -28,7 +40,7 @@ export default class Home extends Component{
                     <div className="center" style={Styles.height400}>
 
                         <div className="flex-box" style={Object.assign({},Styles.height400,Styles.bannerBox)} >
-                            <div style={Object.assign(Styles.width200,Styles.height400)}>
+                            <div style={Object.assign({},Styles.width200,Styles.height400)}>
                                 <div style={Styles.img}>
                                     <img style={Styles.img} src="https://img.mukewang.com/5a5d55de00015cba05120512.jpg" alt=""/>
                                 </div>
@@ -87,6 +99,90 @@ export default class Home extends Component{
 
                         </div>
                     </div>
+
+                    {/*第三部分*/}
+                    <div>
+                        <div className="center" style={Styles.height64}><Icon type="loading" /><h3 className="padding">新上好课</h3><Icon type="loading" /></div>
+                        <div className="flex-box spaceBetween flex-wrap">
+                            {
+                                this.state.newCourseList.map((item, index)=>{
+                                    return (
+                                        <div key={index} style={Styles.itemStyle}>
+                                            <img style={Styles.itemImg} src={item.imgSrc} alt=""/>
+                                            <div>
+                                                <h3 style={{padding: '20px 20px 0 20px'}}>{item.title}</h3>
+                                                <p className="font-note" style={{padding:'0 20px'}}>
+                                                    <span>{item.type}</span>
+                                                    <span>{item.lever}</span>
+                                                </p>
+                                                <p className="lineHeight20" style={{padding:'0 20px'}}>
+                                                    ￥{item.price}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+
+                        </div>
+                    </div>
+
+                    {/*第四部分*/}
+                    <div>
+                        <div className="center" style={Styles.height64}><Icon type="loading" /><h3 className="padding">技能提升</h3><Icon type="loading" /></div>
+                        <div className="flex-box spaceBetween flex-wrap">
+                            {
+                                this.state.newCourseList.map((item, index)=>{
+                                    return (
+                                        <div key={index} style={Styles.itemStyle}>
+                                            <img style={Styles.itemImg} src={item.imgSrc} alt=""/>
+                                            <div>
+                                                <h3 style={{padding: '20px 20px 0 20px'}}>{item.title}</h3>
+                                                <p className="font-note" style={{padding:'0 20px'}}>
+                                                    <span>{item.type}</span>
+                                                    <span>{item.lever}</span>
+                                                </p>
+                                                <p className="lineHeight20" style={{padding:'0 20px'}}>
+                                                    ￥{item.price}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+
+                        </div>
+                    </div>
+
+                    {/*第五部分*/}
+                    <div>
+                        <div className="center" style={Styles.height64}><Icon type="loading" /><h3 className="padding">前沿技术</h3><Icon type="loading" /></div>
+                        <div className="flex-box spaceBetween flex-wrap">
+                            {
+                                this.state.newCourseList.map((item, index)=>{
+                                    return (
+                                        <div key={index} style={Styles.itemStyle}>
+                                            <img style={Styles.itemImg} src={item.imgSrc} alt=""/>
+                                            <div>
+                                                <h3 style={{padding: '20px 20px 0 20px'}}>{item.title}</h3>
+                                                <p className="font-note" style={{padding:'0 20px'}}>
+                                                    <span>{item.type}</span>
+                                                    <span>{item.lever}</span>
+                                                </p>
+                                                <p className="lineHeight20" style={{padding:'0 20px'}}>
+                                                    ￥{item.price}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+
+                        </div>
+                    </div>
+
+                    {/*第六部分*/}
+
                 </div>
 
             </div>

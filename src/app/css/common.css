@@ -2,6 +2,7 @@
 html,body,ul,li,p,h1,h2,h3{
     padding: 0;
     margin: 0;
+    list-style: none;
 }
 html,body,.wrapper,#root{
     width: 100%;
@@ -25,6 +26,9 @@ html,body,.wrapper,#root{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.flex-wrap{
+    flex-wrap: wrap;
 }
 .spaceBetween{
     justify-content: space-between;

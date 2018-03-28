@@ -11,5 +11,9 @@ export default  {
     },
     itemStyle:{
         position: 'relative'
+    },
+    LiStyle:{
+        cursor: 'pointer',
+        marginLeft: '10px'
     }
 }

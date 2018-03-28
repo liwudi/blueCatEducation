@@ -20,7 +20,8 @@ const { Header, Footer, Sider, Content } = Layout;
 
 import Styles from './MainStyle';
 import Config from '../config';
-const NavList = Config.navConfig;
+const NavList = Config.navConfig || [];
+const LinkConfig = Config.LinkConfig || [];
 export default class Main extends Component{
 
     constructor(props){
@@ -115,6 +116,16 @@ export default class Main extends Component{
                         <Route path="/macareer" component={MyCareer}/>
                         <Route path="/project" component={ProjectExcise} />
                     </Content>
+                    <Footer>
+                        <ul className="flex-box">
+                            {
+                                LinkConfig.map((item,index) => {
+                                    return <li style={Object.assign({},((index == 0) ? {} : Styles.LiStyle),{cursor: 'pointer'}) } key={index}>{item}</li>
+                                })
+                            }
+                        </ul>
+                        <p>Copyright © 2018 imooc.com All Rights Reserved | 京ICP备 12003892号-11</p>
+                    </Footer>
 
                     {/*用户登录注册Modal模态框*/}
                     <Modal

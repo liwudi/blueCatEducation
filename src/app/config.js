@@ -17,7 +17,21 @@ const careerListConfig = [
     {icon: 'apple',work:'IOS攻城狮',detail:'可能是全球最好用的系统'}
 ];
 
+const LinkConfig = [
+    '网站首页',
+    '企业合作',
+    '人才招聘',
+    '联系我们',
+    '讲师招募',
+    '常见问题',
+    '一件反馈',
+    '慕课大学'
+];
+
+
+
 export default {
     navConfig,
-    careerListConfig
+    careerListConfig,
+    LinkConfig
 }

@@ -24,11 +24,11 @@ const Styles = {
         height: '200px'
     },
     itemStyle:{
-        width: '200px',
+        width: '210px',
         height: '250px',
     },
     itemImg: {
-        width: '200px',
+        width: '210px',
         height:'100px'
     }
 };
