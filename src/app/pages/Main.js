@@ -116,7 +116,7 @@ export default class Main extends Component{
                         <Route path="/macareer" component={MyCareer}/>
                         <Route path="/project" component={ProjectExcise} />
                     </Content>
-                    <Footer>
+                    <Footer className="border-top">
                         <ul className="flex-box">
                             {
                                 LinkConfig.map((item,index) => {

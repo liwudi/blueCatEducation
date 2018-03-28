@@ -28,10 +28,50 @@ const LinkConfig = [
     '慕课大学'
 ];
 
+const directionConfig = [
+    '全部',
+    '前端开发',
+    '后端开发',
+    '移动开发',
+    '数据库',
+    '人工智能',
+    '人工智能&大数据',
+    '运维&测试',
+    'UI设计'
+];
+const typeConfig = [
+    '全部',
+    '基础',
+    '案例',
+    '框架',
+    '工具',
+    '设计模式'
+];
 
+const classifyConfig = [
+    '全部',
+    'HTML/CSS',
+    'JavaScript',
+    'Html5',
+    'CSS3',
+    'jQuery',
+    'Node.js',
+    'BootStrap',
+    'Angular',
+    'React.js',
+    'Vue.js',
+    'Sass/Less',
+    'PHP',
+    'Python',
+    'C',
+    'C++'
+];
 
 export default {
     navConfig,
     careerListConfig,
-    LinkConfig
+    LinkConfig,
+    directionConfig,
+    classifyConfig,
+    typeConfig
 }
