@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
-import { Layout, Menu, Icon, Modal } from 'antd';
+import { Layout, Menu, Icon, Modal, BackTop } from 'antd';
 
 import Home from './Home/Home';
 import MyCareer from './MyCareer/MyCareer';
@@ -79,7 +79,9 @@ export default class Main extends Component{
 
                             <div className="wrapper flex-box" id="nav">
                                 <div className="logo" >
-                                    <img className="logo-img" src="https://www.imooc.com/static/img/index/logo.png" alt=""/>
+                                    <Link to='/'>
+                                        <img className="logo-img" src="https://www.imooc.com/static/img/index/logo.png" alt=""/>
+                                    </Link>
                                 </div>
                                 <Menu
                                     style={{ lineHeight: '62px' }}
@@ -120,6 +122,9 @@ export default class Main extends Component{
                         </Switch>
                     </Content>
                     <Footer className="border-top">
+                        <div>
+                            <BackTop />
+                        </div>
                         <ul className="flex-box">
                             {
                                 LinkConfig.map((item,index) => {

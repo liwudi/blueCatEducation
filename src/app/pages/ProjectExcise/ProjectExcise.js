@@ -4,6 +4,8 @@
 import React,{ Component } from 'react';
 import Styles from './ProjectExciseStyle';
 import Config from '../../config';
+import { Pagination } from 'antd';
+
 const typeConfig = Config.directionConfig;
 export default class ProjectExcise extends Component{
     constructor(props){
@@ -62,6 +64,9 @@ export default class ProjectExcise extends Component{
                             )
                         })
                     }
+                </div>
+                <div className="center height100">
+                    <Pagination defaultCurrent={1} total={500} />
                 </div>
             </div>
         )

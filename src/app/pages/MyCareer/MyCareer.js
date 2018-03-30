@@ -3,6 +3,7 @@
  */
 import React,{ Component } from 'react';
 import Styles from './MyCareerStyles';
+import { Pagination } from 'antd'
 
 
 export default class MyCareer extends Component{
@@ -65,6 +66,10 @@ export default class MyCareer extends Component{
 
                     </div>
                 </div>
+                <div className="center height100">
+                    <Pagination defaultCurrent={1} total={500} />
+                </div>
+
             </div>
         )
     }

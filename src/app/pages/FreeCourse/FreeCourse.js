@@ -4,6 +4,7 @@
 import React,{ Component } from 'react';
 import Config from '../../config';
 import Styles from './FreeCourseStyle';
+import { Pagination } from 'antd'
 const directionConfig = Config.directionConfig;
 const classifyConfig = Config.classifyConfig;
 const typeConfig = Config.typeConfig;
@@ -90,6 +91,9 @@ export default class FreeCourse extends Component{
                         </div>
 
                     </div>
+                </div>
+                <div className="center height100">
+                    <Pagination defaultCurrent={1} total={500} />
                 </div>
             </div>
         )

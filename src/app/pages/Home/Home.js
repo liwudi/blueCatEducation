@@ -2,7 +2,7 @@
  * Created by mapbar_front on 2018/3/27.
  */
 import React,{ Component } from 'react';
-import { Carousel, Avatar, Icon } from 'antd';
+import { Carousel, Avatar, Icon, Pagination } from 'antd';
 import Styles from './HomeStyles';
 import '../../css/Main.css';
 import Config from '../../config';
@@ -182,7 +182,9 @@ export default class Home extends Component{
                     </div>
 
                     {/*第六部分*/}
-
+                    <div className="center height100">
+                        <Pagination defaultCurrent={1} total={500} />
+                    </div>
                 </div>
 
             </div>
