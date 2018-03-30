@@ -2,7 +2,7 @@
  * Created by mapbar_front on 2018/3/26.
  */
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 import { Layout, Menu, Icon, Modal } from 'antd';
 
@@ -111,10 +111,13 @@ export default class Main extends Component{
 
                     </Header>
                     <Content>
-                        <Route exact path="/" component={Home} />
-                        <Route path="/freecourse" component={FreeCourse} />
-                        <Route path="/macareer" component={MyCareer}/>
-                        <Route path="/project" component={ProjectExcise} />
+                        <Switch>
+                            <Route exact path="/" component={Home} />
+                            <Route path="/freecourse" component={FreeCourse} />
+                            <Route path="/macareer" component={MyCareer}/>
+                            <Route path="/project" component={ProjectExcise} />
+                            <Route component={ProjectExcise} />
+                        </Switch>
                     </Content>
                     <Footer className="border-top">
                         <ul className="flex-box">
