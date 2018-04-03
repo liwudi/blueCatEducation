@@ -1,5 +1,5 @@
 # blueCatEducation
-基于react、react-router 4.0、antd-m、redux的App项目
+基于react、react-router 4.0、antd、redux的App项目
 
 ## Start Project
 >项目启动
@@ -40,3 +40,15 @@ http://www.redux.org.cn/
 ### antd-m
 
 https://mobile.ant.design/docs/react/introduce-cn
+
+## The stars of this project
+>项目亮点
+
+### 服务的封装
+
+### redux的集成
+
+### 合理的文件目录结构
+
+
+

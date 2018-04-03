@@ -2,7 +2,7 @@
  * Created by mapbar_front on 2018/3/26.
  */
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch,NavLink } from 'react-router-dom';
 
 import { Layout, Menu, Icon, Modal, BackTop } from 'antd';
 
@@ -10,6 +10,7 @@ import Home from './Home/Home';
 import MyCareer from './MyCareer/MyCareer';
 import FreeCourse from './FreeCourse/FreeCourse';
 import ProjectExcise from './ProjectExcise/ProjectExcise';
+import About from './About/About';
 
 import WrappedNormalLoginForm from './components/LoginForm/LoginForm';
 import WrappedNormalRegisterForm from './components/RegisterForm/RegisterForm';
@@ -118,6 +119,7 @@ export default class Main extends Component{
                             <Route path="/freecourse" component={FreeCourse} />
                             <Route path="/macareer" component={MyCareer}/>
                             <Route path="/project" component={ProjectExcise} />
+                            <Route path="/about" component={About} />
                             <Route component={ProjectExcise} />
                         </Switch>
                     </Content>
@@ -128,7 +130,7 @@ export default class Main extends Component{
                         <ul className="flex-box">
                             {
                                 LinkConfig.map((item,index) => {
-                                    return <li style={Object.assign({},((index == 0) ? {} : Styles.LiStyle),{cursor: 'pointer'}) } key={index}>{item}</li>
+                                    return <NavLink to='/about' style={Object.assign({},((index == 0) ? {} : Styles.LiStyle),{cursor: 'pointer'}) } key={index}>{item}</NavLink>
                                 })
                             }
                         </ul>

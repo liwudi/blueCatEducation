@@ -12,6 +12,9 @@ html,body,.wrapper,#root{
 .autoBox{
     overflow: auto;
 }
+.boxSizing{
+    box-sizing: border-box;
+}
 .hiddenBox{
     overflow: hidden;
 }
@@ -139,6 +142,9 @@ html,body,.wrapper,#root{
 
 .width1200{
     width: 1200px;
+}
+.width200{
+    width: 200px;
 }
 .width100{
     width: 100px;
