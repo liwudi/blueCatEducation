@@ -50,5 +50,9 @@ https://mobile.ant.design/docs/react/introduce-cn
 
 ### 合理的文件目录结构
 
+### 使用懒加载技术
+
+### 组件和page的结构
+
 
 

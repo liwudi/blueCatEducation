@@ -164,3 +164,11 @@ html,body,.wrapper,#root{
 .height50{
     height: 50px;
 }
+
+.titleStyle{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

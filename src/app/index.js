@@ -9,7 +9,6 @@ import './css/common.css';
 import 'antd/dist/antd.css'
 
 
-
 //注入redux
 import reducers from './reducers/combineReducers';
 import { createStore } from 'redux';
