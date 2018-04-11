@@ -1,6 +1,7 @@
 /**
  * Created by mapbar_front on 2018/3/27.
  */
+const isDev = true;
 
 const navConfig = [
     {type:'user', title:'免费课程', path:'/freecourse'},
@@ -67,7 +68,11 @@ const classifyConfig = [
     'C++'
 ];
 
+const baseUrl = isDev ? 'http://www.baidu.com':'http://www.baidu.com';
+
+
 export default {
+    baseUrl,
     navConfig,
     careerListConfig,
     LinkConfig,
