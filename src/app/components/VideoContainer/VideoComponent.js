@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Styles from "../../pages/Home/HomeStyles";
+import { Rate, Icon } from 'antd';
+import componentStyles from './VideoComponentStyles';
+
 export default class VideoComponent extends Component{
 
     render(){
@@ -8,12 +11,14 @@ export default class VideoComponent extends Component{
             <div style={Styles.itemStyle}>
                 <img style={Styles.itemImg} src={item.imgSrc} alt=""/>
                 <div>
-                    <h3 className='titleStyle' style={{padding: '20px 20px 0 20px'}}>{item.title}</h3>
+                    <h3 className='titleStyle' style={{padding: '20px 20px 0 20px',height:'70px'}}>{item.title}</h3>
                     <p className="font-note" style={{padding:'3px 20px'}}>
                         <span>{item.type}</span>
-                        <span style={{marginLeft:'10px'}}>{item.lever}</span>
+                        <span className="margin-left10">{item.lever}</span>
+                        <span className="margin-left10"><Icon type="user" />{item.num||'无数据'}</span>
                     </p>
-                    <p className="lineHeight20" style={{padding:'0 20px'}}>
+                    <Rate style={componentStyles.titlePadding} defaultValue={item.stars || 5}/>
+                    <p className="lineHeight20" style={componentStyles.titlePadding}>
                         ￥{item.price}
                     </p>
                 </div>
