@@ -4,10 +4,12 @@
 import React,{ Component } from 'react';
 import Config from '../../config';
 import Styles from './FreeCourseStyle';
-import { Pagination } from 'antd'
+import { Pagination } from 'antd';
+import VideoComponent from '../../components/VideoContainer/VideoComponent';
 const directionConfig = Config.directionConfig;
 const classifyConfig = Config.classifyConfig;
 const typeConfig = Config.typeConfig;
+
 export default class FreeCourse extends Component{
     constructor(props){
         super(props);
@@ -71,19 +73,7 @@ export default class FreeCourse extends Component{
                             {
                                 this.state.FreeList.map((item, index)=>{
                                     return (
-                                        <div key={index} style={Styles.itemStyle}>
-                                            <img style={Styles.itemImg} src={item.imgSrc} alt=""/>
-                                            <div>
-                                                <h3 style={{padding: '20px 20px 0 20px'}}>{item.title}</h3>
-                                                <p className="font-note" style={{padding:'0 20px'}}>
-                                                    <span>{item.type}</span>
-                                                    <span>{item.lever}</span>
-                                                </p>
-                                                <p className="lineHeight20" style={{padding:'0 20px'}}>
-                                                    ￥{item.price}
-                                                </p>
-                                            </div>
-                                        </div>
+                                        <VideoComponent item={item} key={index}></VideoComponent>
                                     )
                                 })
                             }

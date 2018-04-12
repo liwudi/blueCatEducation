@@ -5,6 +5,7 @@ import React,{ Component } from 'react';
 import Styles from './ProjectExciseStyle';
 import Config from '../../config';
 import { Pagination } from 'antd';
+import VideoComponent from '../../components/VideoContainer/VideoComponent';
 
 const typeConfig = Config.directionConfig;
 export default class ProjectExcise extends Component{
@@ -48,19 +49,7 @@ export default class ProjectExcise extends Component{
                     {
                         this.state.list.map((item, index)=>{
                             return (
-                                <div key={index} style={Styles.itemStyle}>
-                                    <img style={Styles.itemImg} src={item.imgSrc} alt=""/>
-                                    <div>
-                                        <h3 style={{padding: '20px 20px 0 20px'}}>{item.title}</h3>
-                                        <p className="font-note" style={{padding:'0 20px'}}>
-                                            <span>{item.type}</span>
-                                            <span>{item.lever}</span>
-                                        </p>
-                                        <p className="lineHeight20" style={{padding:'0 20px'}}>
-                                            ￥{item.price}
-                                        </p>
-                                    </div>
-                                </div>
+                                <VideoComponent key={index} item={item}></VideoComponent>
                             )
                         })
                     }

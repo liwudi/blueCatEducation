@@ -3,7 +3,9 @@
  */
 import React,{ Component } from 'react';
 import Styles from './MyCareerStyles';
-import { Pagination } from 'antd'
+import { Pagination } from 'antd';
+import VideoComponent from '../../components/VideoContainer/VideoComponent';
+
 
 
 export default class MyCareer extends Component{
@@ -47,19 +49,7 @@ export default class MyCareer extends Component{
                         {
                             this.state.MyCareerList.map((item, index)=>{
                                 return (
-                                    <div key={index} style={Styles.itemStyle}>
-                                        <img style={Styles.itemImg} src={item.imgSrc} alt=""/>
-                                        <div>
-                                            <h3 style={{padding: '20px 20px 0 20px'}}>{item.title}</h3>
-                                            <p className="font-note" style={{padding:'0 20px'}}>
-                                                <span>{item.type}</span>
-                                                <span>{item.lever}</span>
-                                            </p>
-                                            <p className="lineHeight20" style={{padding:'0 20px'}}>
-                                                ￥{item.price}
-                                            </p>
-                                        </div>
-                                    </div>
+                                    <VideoComponent item={item} key={index}></VideoComponent>
                                 )
                             })
                         }

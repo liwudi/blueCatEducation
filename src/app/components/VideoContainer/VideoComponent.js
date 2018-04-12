@@ -11,7 +11,7 @@ export default class VideoComponent extends Component{
             <div style={Styles.itemStyle}>
                 <img style={Styles.itemImg} src={item.imgSrc} alt=""/>
                 <div>
-                    <h3 className='titleStyle' style={{padding: '20px 20px 0 20px',height:'70px'}}>{item.title}</h3>
+                    <h3 className='titleStyle' style={componentStyles.titleStyle}>{item.title}</h3>
                     <p className="font-note" style={{padding:'3px 20px'}}>
                         <span>{item.type}</span>
                         <span className="margin-left10">{item.lever}</span>

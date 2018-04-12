@@ -130,7 +130,11 @@ export default class Main extends Component{
                         <ul className="flex-box">
                             {
                                 LinkConfig.map((item,index) => {
-                                    return <NavLink to='/about' style={Object.assign({},((index == 0) ? {} : Styles.LiStyle),{cursor: 'pointer'}) } key={index}>{item}</NavLink>
+                                    return <NavLink
+                                        to="/about"
+                                        style={Object.assign({},((index == 0) ? {} : Styles.LiStyle),{cursor: 'pointer',color:'#999999'}) }
+                                        key={index}
+                                    >{item}</NavLink>
                                 })
                             }
                         </ul>
