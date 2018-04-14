@@ -12,6 +12,7 @@ export default class Home extends Component{
     constructor(props){
         super(props);
         this.state = {
+            viewport: {},
             proList: [
                 {title:'Spring Cloud微服务实战',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img3.mukewang.com/szimg/5a9ca4e80001786305400300.jpg'},
                 {title:'Swoole 入门到实战打造高性能赛事直播平台',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img3.mukewang.com/szimg/5ab0fd1400010d7d10800600.jpg'},
@@ -32,6 +33,35 @@ export default class Home extends Component{
                 {title:'基于Python玩转人工智能最火框架',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img3.mukewang.com/szimg/5a5ddeda000145b405400300.jpg'},
             ]
         }
+    }
+    componentDidMount(){
+        window.addEventListener('scroll', () => {
+            this.updateViewport();
+        }, false);
+        window.addEventListener('resize', () => {
+            this.updateViewport();
+        }, false);
+        this.updateViewport();
+    }
+    componentWillUnMount(){
+        window.removeEventListener('scroll', () => {
+            this.updateViewport();
+        });
+        window.removeEventListener('resize', () => {
+            this.updateViewport();
+        });
+    }
+    updateViewport(){
+        this.timer && clearTimeout(this.timer);
+        this.timer = setTimeout(()=>{
+            console.log(window.pageYOffset,window.innerHeight);
+            this.setState({
+                viewport: {
+                    top: window.pageYOffset,
+                    height: window.innerHeight
+                }
+            })
+        },200);
     }
     render(){
         return (
@@ -81,7 +111,7 @@ export default class Home extends Component{
                             {
                                 this.state.proList.map((item, index)=>{
                                     return (
-                                        <VideoComponent key={index} item={item}></VideoComponent>
+                                        <VideoComponent viewport={this.state.viewport} key={index} item={item}></VideoComponent>
                                     )
                                 })
                             }
@@ -96,7 +126,7 @@ export default class Home extends Component{
                             {
                                 this.state.newCourseList.map((item, index)=>{
                                     return (
-                                        <VideoComponent key={index} item={item}></VideoComponent>
+                                        <VideoComponent viewport={this.state.viewport} key={index} item={item}></VideoComponent>
                                     )
                                 })
                             }
@@ -111,7 +141,7 @@ export default class Home extends Component{
                             {
                                 this.state.newCourseList.map((item, index)=>{
                                     return (
-                                        <VideoComponent key={index} item={item}></VideoComponent>
+                                        <VideoComponent viewport={this.state.viewport} key={index} item={item}></VideoComponent>
                                     )
                                 })
                             }
@@ -126,7 +156,7 @@ export default class Home extends Component{
                             {
                                 this.state.newCourseList.map((item, index)=>{
                                     return (
-                                        <VideoComponent key={index} item={item}></VideoComponent>
+                                        <VideoComponent viewport={this.state.viewport} key={index} item={item}></VideoComponent>
                                     )
                                 })
                             }

@@ -50,9 +50,15 @@ https://mobile.ant.design/docs/react/introduce-cn
 
 ### 合理的文件目录结构
 
-### 使用懒加载技术
+### 首页使用懒加载技术
 
 ### 组件和page的结构
+
+### 适当使用函数节流的方式实现性能优化。
+
+### imutable进行性能优化
+
+
 
 
 
