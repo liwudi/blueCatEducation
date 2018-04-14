@@ -35,15 +35,21 @@ export default class Home extends Component{
         }
     }
     componentDidMount(){
+        this.addEventListener();
+        this.updateViewport();
+    }
+    componentWillUnMount(){
+        this.clearEventListener()
+    }
+    addEventListener(next){
         window.addEventListener('scroll', () => {
             this.updateViewport();
         }, false);
         window.addEventListener('resize', () => {
             this.updateViewport();
         }, false);
-        this.updateViewport();
     }
-    componentWillUnMount(){
+    clearEventListener(){
         window.removeEventListener('scroll', () => {
             this.updateViewport();
         });
@@ -51,6 +57,8 @@ export default class Home extends Component{
             this.updateViewport();
         });
     }
+
+    //使用函数节流的方式进行
     updateViewport(){
         this.timer && clearTimeout(this.timer);
         this.timer = setTimeout(()=>{

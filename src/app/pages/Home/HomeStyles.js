@@ -30,6 +30,10 @@ const Styles = {
     itemImg: {
         width: '210px',
         height:'100px'
+    },
+    itemImg1: {
+        width: '100px',
+        height: '100px'
     }
 };
 

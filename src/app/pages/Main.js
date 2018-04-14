@@ -67,10 +67,6 @@ export default class Main extends Component{
             })
         }
     }
-    goPage(){
-        alert(1);
-        this.props.history.push('/freecourse')
-    }
     render(){
         return (
             <div className="wrapper flex-box">
