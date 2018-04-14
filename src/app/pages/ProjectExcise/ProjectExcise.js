@@ -43,8 +43,7 @@ export default class ProjectExcise extends Component{
                                 )
                             })
                         }
-                </div>
-
+                    </div>
                 </div>
                 <div className="width1200 flex-wrap flex-box spaceBetween" style={Styles.list}>
                     {

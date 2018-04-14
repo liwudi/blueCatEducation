@@ -176,3 +176,13 @@ html,body,.wrapper,#root{
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+
+.itemPad{
+    border-radius: 20px;
+    margin: 10px 10px;
+    box-sizing: border-box;
+    height: 30px;
+}
+.itemPad:hover{
+    background-color: #aaaaaa;
+}

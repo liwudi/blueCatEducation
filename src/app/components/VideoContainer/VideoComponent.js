@@ -31,11 +31,11 @@ export default class VideoComponent extends Component{
         });
     }
     componentWillReceiveProps(nextProps,nextState){
-        console.log('componentWillReceiveProps',nextProps,nextState);
+        // console.log('componentWillReceiveProps',nextProps,nextState);
         nextProps.viewport && this.showImage(nextProps);
     }
     shouldComponentUpdate(nextProps = {}, nextState = {}){
-        console.log('shouldComponentUpdate',nextProps,nextState);
+        // console.log('shouldComponentUpdate',nextProps,nextState);
         const thisProps = this.props || {}, thisState = this.state || {};
 
         if (Object.keys(thisProps).length !== Object.keys(nextProps).length ||

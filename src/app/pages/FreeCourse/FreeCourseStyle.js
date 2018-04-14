@@ -12,6 +12,10 @@ const FreeCourseStyle = {
     itemImg: {
         width: '210px',
         height:'100px'
+    },
+    checked:{
+        backgroundColor: '#999999',
+        color:'#fff'
     }
 };
 

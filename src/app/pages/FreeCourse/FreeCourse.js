@@ -15,6 +15,11 @@ export default class FreeCourse extends Component{
     constructor(props){
         super(props);
         this.state = {
+            currentIndex:{
+                direction: 0,
+                classify: 0,
+                type: 0
+            },
             FreeList: [
                 {title:'系统学习Docker 践行De',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img1.mukewang.com/szimg/5a9614850001bc3405400300.jpg'},
                 {title:'微信小程序入门与实战',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img2.mukewang.com/szimg/5a7279250001e10705400300.jpg'},
@@ -29,16 +34,35 @@ export default class FreeCourse extends Component{
             ]
         }
     }
+    typeEvent(type,index){
+        var obj = {};
+        if(type == 1){
+            obj.direction = index;
+        } else if(type == 2){
+            obj.classify = index;
+        } else if(type == 3){
+            obj.type = index;
+        }
+        console.log(Object.assign({},this.state.currentIndex,obj));
+        this.setState({
+            currentIndex: Object.assign({},this.state.currentIndex,obj)
+        })
+    }
     render(){
         return (
             <div className="wrapper autoBox bgWhite center flex-col">
                 <div className="width1200">
                     <div className="flex-box border-bottom">
                         <h3 className="width50 lineHeight50">方向</h3>
-                        <div className="flex1">
+                        <div className="flex1 flex-box flex-wrap">
                             {
                                 directionConfig.map((item,index) => {
-                                    return <span className="lineHeight50" style={Styles.itemPad} key={index}>{item}</span>
+                                    return <span
+                                        onClick={()=>this.typeEvent(1,index)}
+                                        className="itemPad center"
+                                        style={Object.assign({},Styles.itemPad,this.state.currentIndex.direction == index ? Styles.checked: {})}
+                                        key={index}
+                                    >{item}</span>
                                 })
                             }
 
@@ -49,7 +73,12 @@ export default class FreeCourse extends Component{
                         <div className="flex1 flex-box flex-wrap">
                             {
                                 classifyConfig.map((item,index) => {
-                                    return <span className="lineHeight50" style={Styles.itemPad} key={index}>{item}</span>
+                                    return <span
+                                        onClick={()=>this.typeEvent(2,index)}
+                                        className="center itemPad"
+                                        style={Object.assign({},Styles.itemPad,this.state.currentIndex.classify == index ? Styles.checked: {})}
+                                        key={index}
+                                    >{item}</span>
                                 })
                             }
 
@@ -57,10 +86,14 @@ export default class FreeCourse extends Component{
                     </div>
                     <div className="flex-box border-bottom">
                         <h3 className="width50 lineHeight50">类型</h3>
-                        <div className="flex1">
+                        <div className="flex1 flex-box flex-wrap">
                             {
                                 typeConfig.map((item,index) => {
-                                    return <span className="lineHeight50" style={Styles.itemPad} key={index}>{item}</span>
+                                    return <span
+                                        onClick={()=>this.typeEvent(3,index)}
+                                        className="center itemPad"
+                                        style={Object.assign({},Styles.itemPad,this.state.currentIndex.type == index ? Styles.checked: {})}
+                                        key={index}>{item}</span>
                                 })
                             }
 
