@@ -5,7 +5,6 @@ import React,{ Component } from 'react';
 import Styles from './ProjectExciseStyle';
 import Config from '../../config';
 import { Pagination } from 'antd';
-
 import VideoComponent from '../../components/VideoContainer/VideoComponent';
 
 

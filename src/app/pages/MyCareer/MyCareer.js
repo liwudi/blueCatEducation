@@ -3,10 +3,8 @@
  */
 import React,{ Component } from 'react';
 import Styles from './MyCareerStyles';
-import { Pagination } from 'antd'
-
+import { Pagination } from 'antd';
 import VideoComponent from '../../components/VideoContainer/VideoComponent';
-
 
 
 export default class MyCareer extends Component{

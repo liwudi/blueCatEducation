@@ -10,6 +10,7 @@ import VideoComponent from '../../components/VideoContainer/VideoComponent';
 const directionConfig = Config.directionConfig;
 const classifyConfig = Config.classifyConfig;
 const typeConfig = Config.typeConfig;
+
 export default class FreeCourse extends Component{
     constructor(props){
         super(props);
