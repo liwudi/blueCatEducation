@@ -83,7 +83,6 @@ export default class Main extends Component{
                                 <Menu
                                     style={{ lineHeight: '62px' }}
                                     mode="horizontal"
-                                    defaultSelectedKeys={['0']}
                                 >
                                     {
                                         NavList.map((item, index) => {
