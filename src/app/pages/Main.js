@@ -11,6 +11,7 @@ import MyCareer from './MyCareer/MyCareer';
 import FreeCourse from './FreeCourse/FreeCourse';
 import ProjectExcise from './ProjectExcise/ProjectExcise';
 import About from './About/About';
+import VedioDetail from './VedioDetail/VedioDetail';
 
 import WrappedNormalLoginForm from './components/LoginForm/LoginForm';
 import WrappedNormalRegisterForm from './components/RegisterForm/RegisterForm';
@@ -115,6 +116,7 @@ export default class Main extends Component{
                             <Route path="/macareer" component={MyCareer}/>
                             <Route path="/project" component={ProjectExcise} />
                             <Route path="/about" component={About} />
+                            <Route path="/detail" component={VedioDetail} />
                             <Route component={ProjectExcise} />
                         </Switch>
                     </Content>
