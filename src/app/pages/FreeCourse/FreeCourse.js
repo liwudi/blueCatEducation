@@ -10,6 +10,7 @@ import VideoComponent from '../../components/VideoContainer/VideoComponent';
 const directionConfig = Config.directionConfig;
 const classifyConfig = Config.classifyConfig;
 const typeConfig = Config.typeConfig;
+const serviceUrl = Config.baseUrl;
 
 export default class FreeCourse extends Component{
     constructor(props){
@@ -31,8 +32,39 @@ export default class FreeCourse extends Component{
                 {title:'Spring Cloud微服务实战',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img2.mukewang.com/szimg/5a9ca4e80001786305400300.jpg'},
                 {title:'IOS开发之网络协议',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img.mukewang.com/5aaf826f00017e6306000338-240-135.jpg'},
                 {title:'基于Python玩转人工智能最火框架',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img3.mukewang.com/szimg/5a5ddeda000145b405400300.jpg'},
-            ]
+            ],
+          total: 0,
+          AllDataList:[]
         }
+    }
+    fetchData(type){
+      fetch(serviceUrl + '/classification.php?c='+type)
+        .then(res => {
+          return res.json()
+        })
+        .then(data => {
+          console.log('分类数据获取',data);
+          if(data.status == 200){
+            window.localStorage.setItem('classifyData',JSON.stringify(data));
+            this.setState({
+              AllDataList: data.data,
+              FreeList: data.data.splice(0,10)
+            })
+          }
+        })
+    }
+    componentDidMount(){
+      var value = window.localStorage.getItem('classifyData');
+      value = JSON.parse(value);
+      if(value){
+        this.setState({
+          AllDataList: value.data,
+          FreeList: value.data.splice(0,10)
+        })
+      }else {
+        this.fetchData('all')
+      }
+      //this.fetchData('all')
     }
     typeEvent(type,index){
         var obj = {};
@@ -117,7 +149,7 @@ export default class FreeCourse extends Component{
                     </div>
                 </div>
                 <div className="center height100">
-                    <Pagination defaultCurrent={1} total={500} />
+                    <Pagination defaultCurrent={1} total={this.state.AllDataList.length} />
                 </div>
             </div>
         )

@@ -5,7 +5,8 @@ import React,{ Component } from 'react';
 import Styles from './MyCareerStyles';
 import { Pagination } from 'antd';
 import VideoComponent from '../../components/VideoContainer/VideoComponent';
-
+import Config from '../../config';
+const serviceUrl = Config.baseUrl;
 
 export default class MyCareer extends Component{
     constructor(props){
@@ -25,6 +26,18 @@ export default class MyCareer extends Component{
                 {title:'基于Python玩转人工智能最火框架',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img3.mukewang.com/szimg/5a5ddeda000145b405400300.jpg'},
             ]
         }
+    }
+    componentDidMount(){
+      this.fetchData();
+    }
+    fetchData(type = 'all'){
+      fetch(serviceUrl + '/classification.php?c='+type)
+        .then(res=>{
+          return res.json()
+        })
+        .then(data => {
+          console.log(data);
+        })
     }
     render(){
         return (

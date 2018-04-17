@@ -68,7 +68,7 @@ const classifyConfig = [
     'C++'
 ];
 
-const baseUrl = isDev ? 'http://www.baidu.com':'http://www.baidu.com';
+const baseUrl = isDev ? 'http://74a8f306.ngrok.io':'http://www.baidu.com';
 
 
 export default {

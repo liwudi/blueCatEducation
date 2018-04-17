@@ -22,6 +22,7 @@ const { Header, Footer, Sider, Content } = Layout;
 
 import Styles from './MainStyle';
 import Config from '../config';
+const serviceUrl = Config.baseUrl;
 const NavList = Config.navConfig || [];
 const LinkConfig = Config.LinkConfig || [];
 export default class Main extends Component{
@@ -33,6 +34,7 @@ export default class Main extends Component{
             isLogin: true
         }
     }
+
     ModalCancel(){
         this.setState({
             isShowModal:false
@@ -68,6 +70,7 @@ export default class Main extends Component{
             })
         }
     }
+
     render(){
         return (
             <div className="wrapper flex-box">
@@ -78,7 +81,7 @@ export default class Main extends Component{
                             <div className="wrapper flex-box" id="nav">
                                 <div className="logo" >
                                     <Link to='/'>
-                                        <img className="logo-img" src="https://www.imooc.com/static/img/index/logo.png" alt=""/>
+                                        <img className="logo-img" src={serviceUrl+'/images/logo.png'} alt=""/>
                                     </Link>
                                 </div>
                                 <Menu

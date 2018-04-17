@@ -3,6 +3,8 @@ import Styles from "../../pages/Home/HomeStyles";
 import { Rate, Icon } from 'antd';
 import componentStyles from './VideoComponentStyles';
 import { is } from 'immutable';
+import Config from '../../config';
+const serviceUrl = Config.baseUrl;
 
 export default class VideoComponent extends Component{
     constructor(props){
@@ -61,19 +63,22 @@ export default class VideoComponent extends Component{
     }
     render(){
         var item = this.props.item;
+        !item.imgUrl && (item.imgUrl = this.state.loadingImg);
+
+        //console.log(item.imgUrl);
         return (
             <div style={Styles.itemStyle}>
                 <div className="center" style={Styles.itemImg}>
-                    <img style={this.state.showImg ? Styles.itemImg : Styles.itemImg1 } ref='myImg' src={this.state.showImg ? item.imgSrc : this.state.loadingImg} alt=""/>
+                    <img style={this.state.showImg ? Styles.itemImg : Styles.itemImg1 } ref='myImg' src={this.state.showImg ? (/http/.test(item.imgUrl)?item.imgUrl : serviceUrl + item.imgUrl) : this.state.loadingImg} alt=""/>
                 </div>
                 <div>
-                    <h3 className='titleStyle' style={componentStyles.titleStyle}>{item.title}</h3>
+                    <h3 className='titleStyle' style={componentStyles.titleStyle}>{item.name}</h3>
                     <p className="font-note" style={{padding:'3px 20px'}}>
-                        <span>{item.type}</span>
-                        <span className="margin-left10">{item.lever}</span>
-                        <span className="margin-left10"><Icon type="user" />{item.num||'无数据'}</span>
+                        <span>{item.actualCombat}</span>
+                        <span className="margin-left10">{item.actualCombat}</span>
+                        <span className="margin-left10"><Icon type="user" />{item.TheNumberOf||'无数据'}</span>
                     </p>
-                    <Rate style={componentStyles.titlePadding} defaultValue={item.stars || 5}/>
+                    <Rate style={componentStyles.titlePadding} defaultValue={Number(item.score) || 5}/>
                     <p className="lineHeight20" style={componentStyles.titlePadding}>
                         ￥{item.price}
                     </p>

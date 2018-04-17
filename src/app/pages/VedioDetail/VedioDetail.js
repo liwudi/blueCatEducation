@@ -2,13 +2,26 @@
  * Created by mapbar_front on 2018/4/17.
  */
 import React, { Component } from 'react';
-
+import Config from '../../config';
+const serviceUrl = Config.baseUrl;
 export default class VedioDetail extends Component{
     constructor(props){
         super(props);
         this.state = {
             movieSrc:'http://pic.ibaotu.com/00/56/77/28b888piCuvW.mp4'
         }
+    }
+    fetchData(){
+      fetch(serviceUrl + '/details.php?id=1')
+        .then(res => {
+          return res.json()
+        })
+        .then(data => {
+          console.log(data);
+        })
+    }
+    componentDidMount(){
+      this.fetchData();
     }
     render(){
         return (
