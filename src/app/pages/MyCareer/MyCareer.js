@@ -28,6 +28,15 @@ export default class MyCareer extends Component{
         }
     }
     componentDidMount(){
+      var value = JSON.parse(window.localStorage.getItem('MyCareerData'));
+      console.log(value);
+      if(value){
+        this.setState({
+          MyCareerList: value.data.newArr.slice(0,20)
+        })
+      }else {
+        this.fetchData();
+      }
       this.fetchData();
     }
     fetchData(type = 'all'){
@@ -36,7 +45,11 @@ export default class MyCareer extends Component{
           return res.json()
         })
         .then(data => {
+          window.localStorage.setItem('MyCareerData',JSON.stringify(data));
           console.log(data);
+          this.setState({
+            MyCareerList: data.newArr.slice(0,20)
+          })
         })
     }
     render(){
