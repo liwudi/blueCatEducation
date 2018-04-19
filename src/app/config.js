@@ -4,9 +4,9 @@
 const isDev = true;
 
 const navConfig = [
-    {type:'user', title:'免费课程', path:'/freecourse'},
-    {type:'user', title:'职业发展', path:'/macareer'},
-    {type:'user', title:'项目实战', path:'/project'},
+    {type:'file-word', title:'免费课程', path:'/freecourse'},
+    {type:'file-excel', title:'职业发展', path:'/macareer'},
+    {type:'file-ppt', title:'项目实战', path:'/project'},
     {type:'user', title:'猫友论坛', path:'/detail'},
 ];
 

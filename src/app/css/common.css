@@ -190,3 +190,12 @@ html,body,.wrapper,#root{
 .itemPad:hover{
     background-color: #aaaaaa;
 }
+
+.hand{
+  cursor: pointer;
+}
+
+.borderRadius10{
+  border-radius: 10px 10px 0 0;
+}
+

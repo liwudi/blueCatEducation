@@ -79,9 +79,9 @@ export default class Main extends Component{
                     <Header className="flex-box border-bottom bgWhite">
 
                             <div className="wrapper flex-box" id="nav">
-                                <div className="logo" >
+                                <div className="logo center" >
                                     <Link to='/'>
-                                        <img className="logo-img" src={serviceUrl+'/images/logo.png'} alt=""/>
+                                        <img className="logo-img" src='https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3836086191,221018393&fm=27&gp=0.jpg' alt=""/>
                                     </Link>
                                 </div>
                                 <Menu

@@ -40,7 +40,10 @@ const Styles = {
     itemImg: {
         width: '210px',
         height:'100px'
-    }
+    },
+  checked:{
+    color:'red'
+  }
 };
 
 export default Styles;

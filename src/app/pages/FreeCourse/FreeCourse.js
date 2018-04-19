@@ -139,7 +139,7 @@ export default class FreeCourse extends Component{
                     </div>
 
                 </div>
-                <div style={{width: '100%'}} className="center bgGrey">
+                <div style={{width: '100%'}} className="center">
                     <div className="width1200">
 
                         <div className="flex-box spaceBetween flex-wrap" style={{paddingTop: '40px'}}>

@@ -67,9 +67,9 @@ export default class VideoComponent extends Component{
 
         //console.log(item.imgUrl);
         return (
-            <div style={Styles.itemStyle}>
+            <div className='hand bgGrey margin-bottom' style={Styles.itemStyle}>
                 <div className="center" style={Styles.itemImg}>
-                    <img style={this.state.showImg ? Styles.itemImg : Styles.itemImg1 } ref='myImg' src={this.state.showImg ? (/http/.test(item.imgUrl)?item.imgUrl : serviceUrl + item.imgUrl) : this.state.loadingImg} alt=""/>
+                    <img className='borderRadius10' style={this.state.showImg ? Styles.itemImg : Styles.itemImg1 } ref='myImg' src={this.state.showImg ? (/http/.test(item.imgUrl)?item.imgUrl : serviceUrl + item.imgUrl) : this.state.loadingImg} alt=""/>
                 </div>
                 <div>
                     <h3 className='titleStyle' style={componentStyles.titleStyle}>{item.name}</h3>
