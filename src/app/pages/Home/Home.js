@@ -60,25 +60,23 @@ export default class Home extends Component {
   }
 
   componentWillUnMount() {
+    this.timer && clearTimeout(this.timer);
     this.clearEventListener()
   }
 
   addEventListener(next) {
-    window.addEventListener('scroll', () => {
-      this.updateViewport();
-    }, false);
-    window.addEventListener('resize', () => {
-      this.updateViewport();
-    }, false);
+    let _this = this;
+    window.onscroll = function () {
+      _this.updateViewport();
+    };
+    window.onresize = function () {
+      _this.updateViewport();
+    };
   }
 
   clearEventListener() {
-    window.removeEventListener('scroll', () => {
-      this.updateViewport();
-    });
-    window.removeEventListener('resize', () => {
-      this.updateViewport();
-    });
+    window.onscroll && (window.onscroll = '');
+    window.onresize && (window.onresize = '');
   }
 
   //使用函数节流的方式进行

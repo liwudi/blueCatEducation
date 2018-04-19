@@ -34,10 +34,13 @@ export default class FreeCourse extends Component{
                 {title:'基于Python玩转人工智能最火框架',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img3.mukewang.com/szimg/5a5ddeda000145b405400300.jpg'},
             ],
           total: 0,
-          AllDataList:[]
+          AllDataList:[],
+          FreeList:[],
+          titleList: [],
+          typeList: []
         }
     }
-    fetchData(type){
+    fetchData(type,titleType){
       fetch(serviceUrl + '/classification.php?c='+type)
         .then(res => {
           return res.json()
@@ -46,40 +49,58 @@ export default class FreeCourse extends Component{
           console.log('分类数据获取',data);
           if(data.status == 200){
             window.localStorage.setItem('classifyData',JSON.stringify(data));
-            this.setState({
-              AllDataList: data.data,
-              FreeList: data.data.splice(0,10)
-            })
+            this.setData(data,titleType);
           }
         })
     }
-    componentDidMount(){
-      var value = window.localStorage.getItem('classifyData');
-      value = JSON.parse(value);
-      if(value){
+    setData(data,titleType){
+      if(titleType){
         this.setState({
-          AllDataList: value.data,
-          FreeList: value.data.splice(0,10)
-        })
-      }else {
-        this.fetchData('all')
+          FreeList: data.data.slice(0,10),
+          AllDataList: data.data
+        });
+        return
       }
-      //this.fetchData('all')
+      this.setState({
+        AllDataList: data.data.newArr,
+        FreeList: data.data.newArr.slice(0,10),
+        typeList: data.data.res
+      });
+      if(data.dataArr){
+        this.setState({
+          titleList: data.dataArr
+        })
+      }
     }
-    typeEvent(type,index){
+    componentDidMount(){
+      // var value = window.localStorage.getItem('classifyData');
+      // value = JSON.parse(value);
+      // console.log(value);
+      // if(value){
+      //   this.setData(value);
+      // }else {
+      //   this.fetchData('all')
+      // }
+      this.fetchData('all')
+    }
+    typeEvent(type,index,requestParams){
         var obj = {};
         if(type == 1){
             obj.direction = index;
         } else if(type == 2){
             obj.classify = index;
-        } else if(type == 3){
-            obj.type = index;
         }
+      requestParams && this.fetchData(requestParams,type)
         console.log(Object.assign({},this.state.currentIndex,obj));
         this.setState({
             currentIndex: Object.assign({},this.state.currentIndex,obj)
-        })
+        });
     }
+  pageChangeEvent(page,pagesize){
+    this.setState({
+      FreeList: this.state.AllDataList.slice(page*pagesize-10,page*pagesize)
+    })
+  }
     render(){
         return (
             <div className="wrapper autoBox bgWhite center flex-col">
@@ -88,13 +109,13 @@ export default class FreeCourse extends Component{
                         <h3 className="width50 lineHeight50">方向</h3>
                         <div className="flex1 flex-box flex-wrap">
                             {
-                                directionConfig.map((item,index) => {
+                                this.state.titleList.map((item,index) => {
                                     return <span
-                                        onClick={()=>this.typeEvent(1,index)}
+                                        onClick={()=>this.typeEvent(1,index,item.c)}
                                         className="itemPad center"
                                         style={Object.assign({},Styles.itemPad,this.state.currentIndex.direction == index ? Styles.checked: {})}
                                         key={index}
-                                    >{item}</span>
+                                    >{item.name}</span>
                                 })
                             }
 
@@ -104,33 +125,19 @@ export default class FreeCourse extends Component{
                         <h3 className="width50 lineHeight50">分类</h3>
                         <div className="flex1 flex-box flex-wrap">
                             {
-                                classifyConfig.map((item,index) => {
+                                this.state.typeList.map((item,index) => {
                                     return <span
-                                        onClick={()=>this.typeEvent(2,index)}
+                                        onClick={()=>this.typeEvent(2,index,item.c)}
                                         className="center itemPad"
                                         style={Object.assign({},Styles.itemPad,this.state.currentIndex.classify == index ? Styles.checked: {})}
                                         key={index}
-                                    >{item}</span>
+                                    >{item.name}</span>
                                 })
                             }
 
                         </div>
                     </div>
-                    <div className="flex-box border-bottom">
-                        <h3 className="width50 lineHeight50">类型</h3>
-                        <div className="flex1 flex-box flex-wrap">
-                            {
-                                typeConfig.map((item,index) => {
-                                    return <span
-                                        onClick={()=>this.typeEvent(3,index)}
-                                        className="center itemPad"
-                                        style={Object.assign({},Styles.itemPad,this.state.currentIndex.type == index ? Styles.checked: {})}
-                                        key={index}>{item}</span>
-                                })
-                            }
 
-                        </div>
-                    </div>
                 </div>
                 <div style={{width: '100%'}} className="center bgGrey">
                     <div className="width1200">
@@ -149,7 +156,7 @@ export default class FreeCourse extends Component{
                     </div>
                 </div>
                 <div className="center height100">
-                    <Pagination defaultCurrent={1} total={this.state.AllDataList.length} />
+                    <Pagination onChange={(page,pagesize)=>{this.pageChangeEvent(page,pagesize)}} hideOnSinglePage={true} defaultCurrent={1} total={this.state.AllDataList.length} />
                 </div>
             </div>
         )
