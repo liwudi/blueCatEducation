@@ -24,9 +24,9 @@ class LoginForm extends Component{
     render(){
         const { getFieldDecorator } = this.props.form;
         return (
-            <Form style={Styles.loginForm}>
+            <Form onSubmit={(e)=>this.loginEvent(e)} style={Styles.loginForm}>
                 <FormItem>
-                    {getFieldDecorator('userName', {
+                    {getFieldDecorator('username', {
                         rules: [{ required: true, message: 'Please input your username!' }],
                     })(
                         <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
@@ -47,7 +47,7 @@ class LoginForm extends Component{
                         <Checkbox>记住密码？</Checkbox>
                     )}
                     <a style={Styles.loginFormForgot} className="login-form-forgot" href="">忘记密码</a>
-                    <Button onClick={(e)=>this.loginEvent(e)} type="primary" htmlType="submit" style={Styles.loginFormButton}>
+                    <Button type="primary" htmlType="submit" style={Styles.loginFormButton}>
                         登录
                     </Button>
                     <a onClick={()=>this.goRegister()} href="javascript:;">去注册!</a>

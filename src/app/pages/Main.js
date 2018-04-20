@@ -43,18 +43,40 @@ export default class Main extends Component{
     /**
      * 这里要写登录逻辑。
      */
-    loginEvent(){
+    loginEvent(values){
+      console.log('接收到的数据',values);
+      var data = new FormData();
+      data.append('username',values.username);
+      data.append('password',values.password);
+      fetch(serviceUrl+'/login.php',{
+        method: 'POST',
+        body: data
+      }).then((res)=>res.json()).then((data)=>{
+        console.log('登录成功',data);
         this.setState({
-            isShowModal: false
+          isShowModal: false
         })
+      })
+
     }
     /**
      * 这里要写注册逻辑。
      */
-    registerEvent(){
+    registerEvent(values){
+      console.log('接收到的数据1',values);
+      var data = new FormData();
+      data.append('username',values.username);
+      data.append('password',values.password);
+
+      fetch(serviceUrl+'/register.php',{
+        method: 'POST',
+        body: data
+      }).then((res)=>{
+        console.log('登录成功',data);
         this.setState({
-            isShowModal: false
+          isShowModal: false
         })
+      })
     }
 
     clickEvent(value){
@@ -153,10 +175,10 @@ export default class Main extends Component{
                         {
                             this.state.isLogin?
                                 <WrappedNormalLoginForm
-                                    loginEvent = {()=>this.loginEvent()}
+                                    loginEvent = {(value)=>this.loginEvent(value)}
                                     goRegister = {()=>this.clickEvent(0)}
                             />: <WrappedNormalRegisterForm
-                                    registerEvent = {()=>this.registerEvent()}
+                                    registerEvent = {(value)=>this.registerEvent(value)}
                                     goLogin = {()=>this.clickEvent(1)}
                             />
                         }
