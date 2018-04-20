@@ -92,7 +92,9 @@ export default class Home extends Component {
       })
     }, 200);
   }
-
+  goDetail(id){
+    this.props.history.push('/detail',{id:id})
+  }
   render() {
     return (
       <div className="wrapper autoBox bgWhite center">
@@ -143,7 +145,7 @@ export default class Home extends Component {
               {
                 this.state.Recommand.newArr.map((item, index) => {
                   return (
-                    <VideoComponent viewport={this.state.viewport} key={index} item={item}></VideoComponent>
+                    <VideoComponent onClick={(id)=>{this.goDetail(id)}} viewport={this.state.viewport} key={index} item={item}></VideoComponent>
                   )
                 })
               }

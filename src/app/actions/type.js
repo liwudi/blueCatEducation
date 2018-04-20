@@ -4,6 +4,7 @@
 //用户信息相关
 export const USERLOGIN = 'USERLOGIN';//用户登录
 export const CHANGEPSD = 'CHANGEPSD';//修改密码
+export const USERLOGINOUT = 'USERLOGINOUT';
 
 
 export const REQUEST_START = 'REQUEST_START';//数据请求开始

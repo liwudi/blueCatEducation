@@ -4,7 +4,7 @@
 import { combineReducers } from 'redux';
 
 import UserReducers from './userReducers';
-
+import RequestReducers from './requestReducers';
 
 const Reducers = combineReducers({
     userInfo: UserReducers

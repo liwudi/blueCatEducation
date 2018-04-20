@@ -3,11 +3,9 @@
  */
 
 //用户状态相关的信息维护
-import { USERLOGIN, CHANGEPSD } from '../actions/type';
+import { USERLOGIN, CHANGEPSD , USERLOGINOUT } from '../actions/type';
 const defaultUserInfo = {
-    username: 'mapbar_front',
-    phone: 18910592191,
-    password: 123456
+
 };
 export default function userReducer(state = defaultUserInfo,action) {
     switch (action.type){
@@ -17,6 +15,9 @@ export default function userReducer(state = defaultUserInfo,action) {
         case CHANGEPSD:
             return Object.assign({},state,action.userInfo);
             break;
+        case USERLOGINOUT:
+          return {};
+          break;
         default:
             return state
     }

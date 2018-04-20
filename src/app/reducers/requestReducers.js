@@ -8,6 +8,7 @@ const defaultState = {
 
 };
 
+
 export default function homeReducer(state=defaultState,action) {
     switch (action.type){
         case REQUEST_START:

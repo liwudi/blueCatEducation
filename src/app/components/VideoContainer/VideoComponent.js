@@ -61,13 +61,16 @@ export default class VideoComponent extends Component{
         }
         return false;
     }
+  clickEvent(id){
+      this.props.onClick && this.props.onClick(id);
+  }
     render(){
         var item = this.props.item;
         !item.imgUrl && (item.imgUrl = this.state.loadingImg);
 
         //console.log(item.imgUrl);
         return (
-            <div className='hand bgGrey margin-bottom' style={Styles.itemStyle}>
+            <div onClick={()=>this.clickEvent(item.id)} className='hand bgGrey margin-bottom' style={Styles.itemStyle}>
                 <div className="center" style={Styles.itemImg}>
                     <img className='borderRadius10' style={this.state.showImg ? Styles.itemImg : Styles.itemImg1 } ref='myImg' src={this.state.showImg ? (/http/.test(item.imgUrl)?item.imgUrl : serviceUrl + item.imgUrl) : this.state.loadingImg} alt=""/>
                 </div>

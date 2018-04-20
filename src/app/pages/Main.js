@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch,NavLink } from 'react-router-dom';
 
-import { Layout, Menu, Icon, Modal, BackTop } from 'antd';
+import { Layout, Menu, Icon, Modal, BackTop, Avatar, Dropdown } from 'antd';
 
 import Home from './Home/Home';
 import MyCareer from './MyCareer/MyCareer';
@@ -16,7 +16,11 @@ import VedioDetail from './VedioDetail/VedioDetail';
 import WrappedNormalLoginForm from './components/LoginForm/LoginForm';
 import WrappedNormalRegisterForm from './components/RegisterForm/RegisterForm';
 
+import Actions from '../actions/index';
+
 import '../css/Main.css';
+
+import { connect } from 'react-redux';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -25,7 +29,7 @@ import Config from '../config';
 const serviceUrl = Config.baseUrl;
 const NavList = Config.navConfig || [];
 const LinkConfig = Config.LinkConfig || [];
-export default class Main extends Component{
+class Main extends Component{
 
     constructor(props){
         super(props);
@@ -44,7 +48,7 @@ export default class Main extends Component{
      * 这里要写登录逻辑。
      */
     loginEvent(values){
-      console.log('接收到的数据',values);
+
       var data = new FormData();
       data.append('username',values.username);
       data.append('password',values.password);
@@ -53,17 +57,16 @@ export default class Main extends Component{
         body: data
       }).then((res)=>res.json()).then((data)=>{
         console.log('登录成功',data);
+        this.props.dispatch(Actions.userInfo.userLogin({ username:values.username,password: values.password }))
         this.setState({
           isShowModal: false
         })
-      })
-
+      });
     }
     /**
      * 这里要写注册逻辑。
      */
     registerEvent(values){
-      console.log('接收到的数据1',values);
       var data = new FormData();
       data.append('username',values.username);
       data.append('password',values.password);
@@ -72,7 +75,7 @@ export default class Main extends Component{
         method: 'POST',
         body: data
       }).then((res)=>{
-        console.log('登录成功',data);
+        console.log('注册成功',data);
         this.setState({
           isShowModal: false
         })
@@ -92,8 +95,23 @@ export default class Main extends Component{
             })
         }
     }
-
+  loginOut(){
+      this.props.dispatch(Actions.userInfo.userLoginOut());
+  }
     render(){
+      console.log('main',this.props);
+      const menu = (
+        <Menu>
+          <Menu.Item key="0">
+            <a onClick={()=>this.loginOut()} href="javascript:;">退出登录</a>
+          </Menu.Item>
+          {/*<Menu.Item key="1">*/}
+            {/*<a href="http://www.taobao.com/">2nd menu item</a>*/}
+          {/*</Menu.Item>*/}
+          {/*<Menu.Divider />*/}
+          {/*<Menu.Item key="3">3rd menu item</Menu.Item>*/}
+        </Menu>
+      );
         return (
             <div className="wrapper flex-box">
                 <Router>
@@ -122,14 +140,25 @@ export default class Main extends Component{
                                         })
                                     }
                                 </Menu>
-                                <div className="nav-right flex-box">
-                                    <div className="padding-item loadApp">下载App</div>
-                                    <div>
-                                        <span onClick={()=>this.clickEvent(1)} className="padding-item login">登录</span>
-                                        <span className="padding-item">/</span>
-                                        <span onClick={()=>this.clickEvent(0)} className="padding-item register">注册</span>
-                                    </div>
+                              {
+                                !this.props.state.userInfo.username ? <div className="nav-right flex-box">
+                                  <div className="padding-item loadApp">下载App</div>
+                                  <div>
+                                    <span onClick={()=>this.clickEvent(1)} className="padding-item login">登录</span>
+                                    <span className="padding-item">/</span>
+                                    <span onClick={()=>this.clickEvent(0)} className="padding-item register">注册</span>
+                                  </div>
+                                </div> : <div className='center nav-right flex-box'>
+                                  <Avatar className='margin-right' size="large" icon="user" />
+                                    {this.props.state.userInfo.username}
+                                  <Dropdown overlay={menu} trigger={['click']}>
+                                    <a className="ant-dropdown-link" href="#">
+                                      <Icon type="down" />
+                                    </a>
+                                  </Dropdown>
                                 </div>
+                              }
+
                             </div>
 
 
@@ -190,3 +219,10 @@ export default class Main extends Component{
         )
     }
 }
+
+
+export default connect((state)=>{
+  return {
+    state: state
+  }
+})(Main);

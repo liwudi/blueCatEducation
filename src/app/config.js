@@ -19,14 +19,12 @@ const careerListConfig = [
 ];
 
 const LinkConfig = [
-    '网站首页',
+    '关于我们',
+    '团队介绍',
     '企业合作',
     '人才招聘',
-    '联系我们',
     '讲师招募',
-    '常见问题',
-    '一件反馈',
-    '慕课大学'
+    '友情链接'
 ];
 
 const directionConfig = [

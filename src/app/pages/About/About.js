@@ -37,7 +37,7 @@ export default class About extends Component{
                                 <Menu.Item key="3"><NavLink to="/about/enterpriseCooperation">企业合作</NavLink></Menu.Item>
                                 <Menu.Item key="4"><NavLink to="/about/job">人才招聘</NavLink></Menu.Item>
                                 <Menu.Item key="5"><NavLink to="/about/lecturer">讲师招募</NavLink></Menu.Item>
-                                <Menu.Item key="6"><NavLink to="/about/contactus">联系我们</NavLink></Menu.Item>
+                                {/*<Menu.Item key="6"><NavLink to="/about/contactus">联系我们</NavLink></Menu.Item>*/}
                                 <Menu.Item key="7"><NavLink to="/about/friendshiplink">友情链接</NavLink></Menu.Item>
                             </Menu>
                         </div>
