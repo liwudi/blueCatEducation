@@ -96,7 +96,7 @@ export default class ProjectExcise extends Component{
                     {
                         this.state.ProjectList.map((item, index)=>{
                             return (
-                                <VideoComponent NoLazy={true} key={index} item={item}/>
+                                <VideoComponent onClick={(id)=>{this.goDetail(id)}} NoLazy={true} key={index} item={item}/>
                             )
                         })
                     }

@@ -105,7 +105,7 @@ export default class Home extends Component {
             <div className="flex-box" style={Object.assign({}, Styles.height400, Styles.bannerBox)}>
               <div style={Object.assign({}, Styles.width200, Styles.height400)}>
                 <div style={Styles.img}>
-                  <img style={Styles.img} src="https://img.mukewang.com/5a5d55de00015cba05120512.jpg" alt=""/>
+                  <img style={Styles.img} src="http://climg.mukewang.com/5915802b0001da6206000338.jpg" alt=""/>
                 </div>
                 <div style={Styles.img}>
                   <img style={Styles.img} src="https://img.mukewang.com/5a5d55de00015cba05120512.jpg" alt=""/>
@@ -161,7 +161,7 @@ export default class Home extends Component {
               {
                 this.state.newCourse.newArr.map((item, index) => {
                   return (
-                    <VideoComponent viewport={this.state.viewport} key={index} item={item}></VideoComponent>
+                    <VideoComponent onClick={(id)=>{this.goDetail(id)}} viewport={this.state.viewport} key={index} item={item}></VideoComponent>
                   )
                 })
               }
@@ -177,7 +177,7 @@ export default class Home extends Component {
               {
                 this.state.skill.newArr.map((item, index) => {
                   return (
-                    <VideoComponent viewport={this.state.viewport} key={index} item={item}></VideoComponent>
+                    <VideoComponent onClick={(id)=>{this.goDetail(id)}} viewport={this.state.viewport} key={index} item={item}></VideoComponent>
                   )
                 })
               }
@@ -193,7 +193,7 @@ export default class Home extends Component {
               {
                 this.state.Recommand1.newArr.map((item, index) => {
                   return (
-                    <VideoComponent viewport={this.state.viewport} key={index} item={item}></VideoComponent>
+                    <VideoComponent onClick={(id)=>{this.goDetail(id)}} viewport={this.state.viewport} key={index} item={item}></VideoComponent>
                   )
                 })
               }

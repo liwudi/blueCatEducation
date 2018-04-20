@@ -21,18 +21,6 @@ export default class FreeCourse extends Component{
                 classify: 0,
                 type: 0
             },
-            FreeList: [
-                {title:'系统学习Docker 践行De',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img1.mukewang.com/szimg/5a9614850001bc3405400300.jpg'},
-                {title:'微信小程序入门与实战',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img2.mukewang.com/szimg/5a7279250001e10705400300.jpg'},
-                {title:'Go语言语法入门篇',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img.mukewang.com/5aaf5f370001c40306000338-240-135.jpg'},
-                {title:'Elastic Stack从入门到实战',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img2.mukewang.com/szimg/5a7441e30001d4f805400300.jpg'},
-                {title:'Java企业级电商项目架构演进之路',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img1.mukewang.com/szimg/5a16336900014ca405400300.jpg'},
-                {title:'Java高并发编程与高并发解决方案',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img4.mukewang.com/szimg/5aaa55850001a3ef10800600.jpg'},
-                {title:'Ruff物联网应用开发入门',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img3.mukewang.com/5aa77f4c0001f0a706000338-240-135.jpg'},
-                {title:'Spring Cloud微服务实战',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img2.mukewang.com/szimg/5a9ca4e80001786305400300.jpg'},
-                {title:'IOS开发之网络协议',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img.mukewang.com/5aaf826f00017e6306000338-240-135.jpg'},
-                {title:'基于Python玩转人工智能最火框架',type:'实战',lever:'高级',price:'366.00',imgSrc:'https://img3.mukewang.com/szimg/5a5ddeda000145b405400300.jpg'},
-            ],
           total: 0,
           AllDataList:[],
           FreeList:[],
@@ -54,7 +42,8 @@ export default class FreeCourse extends Component{
         })
     }
     setData(data,titleType){
-      if(titleType){
+      console.log('data___',data);
+      if(titleType==2){
         this.setState({
           FreeList: data.data.slice(0,10),
           AllDataList: data.data
@@ -146,7 +135,7 @@ export default class FreeCourse extends Component{
                             {
                                 this.state.FreeList.map((item, index)=>{
                                     return (
-                                        <VideoComponent NoLazy={true} key={index} item={item}/>
+                                        <VideoComponent onClick={(id)=>{this.goDetail(id)}} NoLazy={true} key={index} item={item}/>
                                     )
                                 })
                             }

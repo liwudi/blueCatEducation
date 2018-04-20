@@ -90,7 +90,7 @@ export default class MyCareer extends Component{
                         {
                             this.state.MyCareerList.map((item, index)=>{
                                 return (
-                                    <VideoComponent NoLazy={true} key={index} item={item}/>
+                                    <VideoComponent onClick={(id)=>{this.goDetail(id)}} NoLazy={true} key={index} item={item}/>
                                 )
                             })
                         }
