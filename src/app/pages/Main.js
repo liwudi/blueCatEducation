@@ -2,7 +2,7 @@
  * Created by mapbar_front on 2018/3/26.
  */
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link, Route, Switch,NavLink } from 'react-router-dom';
+import { HashRouter as Router, Link, Route, Switch,NavLink } from 'react-router-dom';
 
 import { Layout, Menu, Icon, Modal, BackTop, Avatar, Dropdown } from 'antd';
 
